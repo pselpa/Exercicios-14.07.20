@@ -22,3 +22,16 @@ C:\PatriciaSelpa\Exercicios-14.07.20\bin\Debug\netcoreapp3.1\Exercicios-14.07.20
 C:\PatriciaSelpa\Exercicios-14.07.20\bin\Debug\netcoreapp3.1\Exercicios-14.07.20.runtimeconfig.dev.json
 C:\PatriciaSelpa\Exercicios-14.07.20\bin\Debug\netcoreapp3.1\Exercicios-14.07.20.dll
 C:\PatriciaSelpa\Exercicios-14.07.20\bin\Debug\netcoreapp3.1\Exercicios-14.07.20.pdb
+C:\Users\Usuario\Entra21\Exercicios-14.07.20\Exercicios-14.07.20\bin\Debug\netcoreapp3.1\Exercicios-14.07.20.exe
+C:\Users\Usuario\Entra21\Exercicios-14.07.20\Exercicios-14.07.20\bin\Debug\netcoreapp3.1\Exercicios-14.07.20.deps.json
+C:\Users\Usuario\Entra21\Exercicios-14.07.20\Exercicios-14.07.20\bin\Debug\netcoreapp3.1\Exercicios-14.07.20.runtimeconfig.json
+C:\Users\Usuario\Entra21\Exercicios-14.07.20\Exercicios-14.07.20\bin\Debug\netcoreapp3.1\Exercicios-14.07.20.runtimeconfig.dev.json
+C:\Users\Usuario\Entra21\Exercicios-14.07.20\Exercicios-14.07.20\bin\Debug\netcoreapp3.1\Exercicios-14.07.20.dll
+C:\Users\Usuario\Entra21\Exercicios-14.07.20\Exercicios-14.07.20\bin\Debug\netcoreapp3.1\Exercicios-14.07.20.pdb
+C:\Users\Usuario\Entra21\Exercicios-14.07.20\Exercicios-14.07.20\obj\Debug\netcoreapp3.1\Exercicios-14.07.20.csprojAssemblyReference.cache
+C:\Users\Usuario\Entra21\Exercicios-14.07.20\Exercicios-14.07.20\obj\Debug\netcoreapp3.1\Exercicios-14.07.20.AssemblyInfoInputs.cache
+C:\Users\Usuario\Entra21\Exercicios-14.07.20\Exercicios-14.07.20\obj\Debug\netcoreapp3.1\Exercicios-14.07.20.AssemblyInfo.cs
+C:\Users\Usuario\Entra21\Exercicios-14.07.20\Exercicios-14.07.20\obj\Debug\netcoreapp3.1\Exercicios-14.07.20.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\Entra21\Exercicios-14.07.20\Exercicios-14.07.20\obj\Debug\netcoreapp3.1\Exercicios-14.07.20.dll
+C:\Users\Usuario\Entra21\Exercicios-14.07.20\Exercicios-14.07.20\obj\Debug\netcoreapp3.1\Exercicios-14.07.20.pdb
+C:\Users\Usuario\Entra21\Exercicios-14.07.20\Exercicios-14.07.20\obj\Debug\netcoreapp3.1\Exercicios-14.07.20.genruntimeconfig.cache
