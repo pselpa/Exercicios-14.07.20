@@ -280,6 +280,213 @@ namespace Exercicios_14._07._20
             //     System.Console.WriteLine("DIVISÃO POR ZERO!");
             // }
 
+            // // 12. Ler 4 números inteiros e calcular a soma dos que forem pares e ímpares.
+
+            // int sumEvenNumbers = 0;
+            // int sumOddNumbers = 0;
+            // int cont = 0;
+
+            // while (cont < 4)
+            // {
+            // System.Console.WriteLine("Insira um número inteiro:");
+            // var num = System.Console.ReadLine();
+            // int number = Int32.Parse(num);
+            // cont++;
+
+            // if (number%2 == 0)
+            // {
+            //     sumEvenNumbers += number;
+            // }
+            // else if (number%2 != 0)
+            // {
+            //     sumOddNumbers += number;
+            // }
+            // }
+            // System.Console.WriteLine($"A soma dos números pares é {sumEvenNumbers}");
+            // System.Console.WriteLine($"A soma dos números ímpares é {sumOddNumbers}");
+
+
+            // // 13. Ler 10 valores e determinar o maior dentre eles.
+
+            // int greatestNumber = 0;
+            // int counter = 0;
+
+            // while (counter < 10)
+            // {
+            // System.Console.WriteLine("Insira um número:");
+            // var num = System.Console.ReadLine();
+            // int number = Int32.Parse(num);
+            // counter++;
+
+            // if (number > greatestNumber)
+            // {
+            //     greatestNumber = number;
+            // }
+            // }
+            // System.Console.WriteLine($"O maior número é {greatestNumber}");
+            
+            
+            // // 14. Ler três valores e colocá-los em ordem
+            
+            // int firstNumber = 0;
+            // int secondNumber = 0;
+            // int thirdNumber = 0;
+        
+            // System.Console.WriteLine("Insira o primeiro número:");
+            // var num1 = System.Console.ReadLine();
+            // int number1 = Int32.Parse(num1);
+
+            // System.Console.WriteLine("Insira o segundo número:");
+            // var num2 = System.Console.ReadLine();
+            // int number2 = Int32.Parse(num2);
+
+            // System.Console.WriteLine("Insira o terceiro número:");
+            // var num3 = System.Console.ReadLine();
+            // int number3 = Int32.Parse(num3);
+
+            // if (number1 < number2 && number2 < number3)
+            // {
+            //     firstNumber = number1;
+            //     secondNumber = number2;
+            //     thirdNumber = number3;
+            // }
+            // else if (number1 < number3 && number3 < number2)
+            // {
+            //     firstNumber = number1;
+            //     secondNumber = number3;
+            //     thirdNumber = number2;
+            // }
+            // else if (number2 < number1 && number1 < number3)
+            // {
+            //     firstNumber = number2;
+            //     secondNumber = number1;
+            //     thirdNumber = number3;
+            // }
+            // else if (number2 < number3 && number3 < number1)
+            // {
+            //     firstNumber = number2;
+            //     secondNumber = number3;
+            //     thirdNumber = number1;
+            // }
+            // else if (number3 < number1 && number1 < number2)
+            // {
+            //     firstNumber = number3;
+            //     secondNumber = number1;
+            //     thirdNumber = number2;
+            // }
+            // else if (number3 < number2 && number2 < number1)
+            // {
+            //     firstNumber = number3;
+            //     secondNumber = number2;
+            //     thirdNumber = number1;
+            // }
+
+            // System.Console.WriteLine($"1° número {firstNumber}");
+            // System.Console.WriteLine($"2° número {secondNumber}");
+            // System.Console.WriteLine($"3° número {thirdNumber}");
+
+
+            // // 15. Ler 10 números e imprimir quantos são múltiplos de 3 e quantos são múltiplos de 5.
+
+            // int counter3 = 0;
+            // int counter5 = 0;
+            // int counter = 0;
+
+            // while (counter < 10)
+            // {
+            //     counter++;
+            //     System.Console.WriteLine($"Insira o número {counter} de 10");
+            //     int number = Int32.Parse(System.Console.ReadLine());
+
+            //     if (number%3 == 0)
+            //     {
+            //         counter3++;
+            //     }
+            //     else if (number%5 == 0)
+            //     {
+            //         counter5++;
+            //     }
+            // }
+            // System.Console.WriteLine($"Há {counter3} números múltiplos de 3 e {counter5} múltiplos de 5.");
+
+
+            // // 16. Ler o salário de uma pessoa e imprimir o Salário Líquido de acordo com a redução do imposto descrito ao lado:
+            // // Menor ou igual a R$ 600,00 - ISENTO
+            // // Maior que R$ 600,00 e menor ou igual a 1200 - 20% desconto
+            // // Maior que R$ 1.200,00 e menor ou igual a R$2000 - 25% desconto
+            // // Maior que R$ 2.000,00 - 30% desconto
+
+            // double finalIncome = 0;
+            // System.Console.WriteLine("Insira o seu salário bruto:");
+            // double income = double.Parse(System.Console.ReadLine());
+
+            // if (income <= 600)
+            // {
+            //     System.Console.WriteLine($"Salário = R$ {income}. ISENTO");
+            // }
+            // else if (income > 600 && income <= 1200)
+            // {
+            //     finalIncome = income * 0.8;
+            //     System.Console.WriteLine($"Salário líquido é R$ {finalIncome.ToString("0.00")}");
+            // }
+            // else if (income > 1200 && income <= 2000)
+            // {
+            //     finalIncome = income * 0.75;
+            //     System.Console.WriteLine($"Salário líquido é R$ {finalIncome.ToString("0.00")}");
+            // }
+            // else if (income > 2000)
+            // {
+            //     finalIncome = income * 0.70;
+            //     System.Console.WriteLine($"Salário líquido é R$ {finalIncome.ToString("0.00")}");
+            // }
+
+            // // 17. Imprimir a tabuada de qualquer número fornecido pelo usuário até que o usuário forneça o valor –1.
+
+            // int number = 0;
+
+            // while (true)
+            // {
+            //     System.Console.WriteLine("Insira um número inteiro. Para finalizar, digite -1:");
+            //     number = Int32.Parse(System.Console.ReadLine());
+
+            //     if (number == -1) 
+            //     {
+            //         break;
+            //     }
+
+            //     System.Console.WriteLine($"1 x {number} = {number}");
+            //     System.Console.WriteLine($"2 x {number} = {2*number}");
+            //     System.Console.WriteLine($"3 x {number} = {3*number}");
+            //     System.Console.WriteLine($"4 x {number} = {4*number}");
+            //     System.Console.WriteLine($"5 x {number} = {5*number}");
+            //     System.Console.WriteLine($"6 x {number} = {6*number}");
+            //     System.Console.WriteLine($"7 x {number} = {7*number}");
+            //     System.Console.WriteLine($"8 x {number} = {8*number}");
+            //     System.Console.WriteLine($"9 x {number} = {9*number}");
+            //     System.Console.WriteLine($"10 x {number} = {10*number}");
+            // }
+
+            // 18. As maçãs custam R$ 1,30 cada se forem compradas menos de uma dúzia, e R$ 1,00 se forem compradas pelo menos 12. Escreva 
+            //um programa que leia o número de maçãs compradas, calcule e escreva o custo total da compra. 
+
+            
+           
+            System.Console.WriteLine("Quantas maçãs você deseja comprar?");
+            int appleAmount = Int32.Parse(System.Console.ReadLine());
+
+            if (appleAmount < 12)
+            {
+                double appleCost = 1.3 *appleAmount;
+                System.Console.WriteLine($"Total da compra: R$ {appleCost.ToString("0.00")}");   
+            }
+            else if (appleAmount >= 12)
+            {
+                System.Console.WriteLine($"Total da compra: R$ {appleAmount}"); 
+            }
+
+            
+
+
 
 
         }
