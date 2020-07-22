@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace Exercicios_14._07._20
 {
@@ -251,75 +252,94 @@ namespace Exercicios_14._07._20
 
         static void exercicio6()
         {
-        //6. URNA ELETRÔNICA (SENHA, Cadastrar, Votar, apurar votos)
-        // * Esta urna deve possuir dois candidatos e possui três modos. 
-        // * O primeiro é o modo de CADASTRO, onde o sistema pergunta o nome de cada um dos dois candidatos. 
-        // *** Para poder cadastrar um candidato deve solicitar senha para poder ter acesso (a senha é Pa$$w0rd).
-        // * O segundo é o modo de votos, informa 1 para votar no primeiro e 2 para votar no segundo candidato. 
-        // * O terceiro, é o modo de apuração de votos, onde o sistema verifica qual candidato tem mais votos. 
-        // *** Caso o número de votos seja igual, o sistema deve imprimir a mensagem "SEGUNDO TURNO", caso 
-        // contrário deve imprimir o nome do candidato vencedor e o número de votos que ele obteve.
+            //6. URNA ELETRÔNICA (SENHA, Cadastrar, Votar, apurar votos)
+            // * Esta urna deve possuir dois candidatos e possui três modos. 
+            // * O primeiro é o modo de CADASTRO, onde o sistema pergunta o nome de cada um dos dois candidatos. 
+            // *** Para poder cadastrar um candidato deve solicitar senha para poder ter acesso (a senha é Pa$$w0rd).
+            // * O segundo é o modo de votos, informa 1 para votar no primeiro e 2 para votar no segundo candidato. 
+            // * O terceiro, é o modo de apuração de votos, onde o sistema verifica qual candidato tem mais votos. 
+            // *** Caso o número de votos seja igual, o sistema deve imprimir a mensagem "SEGUNDO TURNO", caso 
+            // contrário deve imprimir o nome do candidato vencedor e o número de votos que ele obteve.
 
-        System.Console.WriteLine("6. Urna Eletrônica.");
-        var firstCandidate = "";
-        var secondCandidate = "";
-
-            System.Console.WriteLine("1ª ETAPA: CADASTRO");
-            System.Console.WriteLine("Insira a senha para continuar:");
-            var password = System.Console.ReadLine();
-            
-            if (password != "Pa$$w0rd")
-            {
-                System.Console.WriteLine("SENHA INCORRETA");
-            }
-            else
-            {
-                System.Console.WriteLine("Insira o nome do 1º candidato:");
-                firstCandidate = System.Console.ReadLine();
-                System.Console.WriteLine("Insira o nome do 2º candidato:");
-                secondCandidate = System.Console.ReadLine();
-            }
-
-            System.Console.WriteLine("2ª ETAPA: VOTAÇÃO:");
+            System.Console.WriteLine("6. Urna Eletrônica.");
+            var mainOption = "";
+            var firstCandidate = "";
+            var secondCandidate = "";
             int firstCandidateCounter = 0;
             int secondCandidateCounter = 0;
+                       
+            while (mainOption != "x" || mainOption != "X")
+            {
+                System.Console.WriteLine("\n*** URNA ELETRÔNICA ***");
+                System.Console.WriteLine("Digite os números referentes às opções: \n1.CADASTRO \n2.VOTAÇÃO \n3.APURAÇÃO \nOu digite X para sair.");
+                mainOption = System.Console.ReadLine();
 
-            System.Console.WriteLine($"Selecione dentre as opções: (1) {firstCandidate} ou (2) {secondCandidate} ");
+                if (mainOption == "1")
+                {
+                    System.Console.WriteLine("\n1ª ETAPA: CADASTRO");
+                    System.Console.WriteLine("Insira a senha para continuar:");                        
+                    var password = System.Console.ReadLine();
+                    
+                    if (password != "Pa$$w0rd")
+                    {
+                        System.Console.WriteLine("\nSENHA INCORRETA\n");
+                    }                        
+                    else
+                    {
+                        System.Console.WriteLine("Insira o nome do 1º candidato:");
+                        firstCandidate = System.Console.ReadLine();
+                        System.Console.WriteLine("Insira o nome do 2º candidato:");
+                        secondCandidate = System.Console.ReadLine();
+                    }
+                }
+                    
+                else if (mainOption == "2" && firstCandidate != "" && secondCandidate != "")
+                {
+                    System.Console.WriteLine("\n2ª ETAPA: VOTAÇÃO:");
+                    firstCandidateCounter = 0;
+                    secondCandidateCounter = 0;
 
-            while (true)
-            {
-                System.Console.WriteLine("Insira o número, ou X para finalizar:");
-                var vote = System.Console.ReadLine();
-                if (vote == "x" || vote == "X")
-                {
-                    break;
-                }
-                else if (vote == "1")
-                {
-                    firstCandidateCounter++;
-                }
-                else if (vote == "2")
-                {
-                    secondCandidateCounter++;
-                }
-                else
-                {
-                    System.Console.WriteLine("Escolha uma opção válida.");
-                }
-            }
+                    System.Console.WriteLine($"Selecione dentre as opções: (1) {firstCandidate} ou (2) {secondCandidate} ");
 
-            System.Console.WriteLine("3ª ETAPA: APURAÇÃO DOS VOTOS");
-            if (firstCandidateCounter > secondCandidateCounter)
-            {
-                System.Console.WriteLine($"Candidato(a) {firstCandidate} venceu a eleição!");
-            }
-            else if (secondCandidateCounter > firstCandidateCounter)
-            {
-                System.Console.WriteLine($"Candidato(a) {secondCandidate} venceu a eleição!");
-            }
-            else
-            {
-                System.Console.WriteLine("SEGUNDO TURNO");
+                    while (true)
+                    {
+                        System.Console.WriteLine("\nInsira o número, ou X para finalizar:");
+                        var vote = System.Console.ReadLine();
+                        if (vote == "x" || vote == "X")
+                        {
+                            break;
+                        }
+                        else if (vote == "1")
+                        {
+                            firstCandidateCounter++;
+                        }
+                        else if (vote == "2")
+                        {
+                            secondCandidateCounter++;
+                        }
+                        else
+                        {
+                            System.Console.WriteLine("Escolha uma opção válida.");
+                        }
+                    }
+                }
+
+                else if (mainOption == "3" && firstCandidate != "" && secondCandidate != "" && firstCandidateCounter != 0 || secondCandidateCounter != 0)
+                {
+                    System.Console.WriteLine("\n3ª ETAPA: APURAÇÃO DOS VOTOS");
+                    if (firstCandidateCounter > secondCandidateCounter)
+                    {
+                        System.Console.WriteLine($"Candidato(a) {firstCandidate} venceu a eleição!\n");
+                    }
+                    else if (secondCandidateCounter > firstCandidateCounter)
+                    {
+                        System.Console.WriteLine($"Candidato(a) {secondCandidate} venceu a eleição!\n");
+                    }
+                    else if (secondCandidateCounter == firstCandidateCounter)
+                    {
+                        System.Console.WriteLine("SEGUNDO TURNO\n");
+                    }                
+                }
             }
         }
 
@@ -503,63 +523,24 @@ namespace Exercicios_14._07._20
         {
             // 14. Ler três valores e colocá-los em ordem
 
-            System.Console.WriteLine("14. Ler três valores e colocá-los em ordem.");           
-            int firstNumber = 0;
-            int secondNumber = 0;
-            int thirdNumber = 0;
-        
-            System.Console.WriteLine("Insira o primeiro número:");
-            var num1 = System.Console.ReadLine();
-            int number1 = Int32.Parse(num1);
-
-            System.Console.WriteLine("Insira o segundo número:");
-            var num2 = System.Console.ReadLine();
-            int number2 = Int32.Parse(num2);
-
-            System.Console.WriteLine("Insira o terceiro número:");
-            var num3 = System.Console.ReadLine();
-            int number3 = Int32.Parse(num3);
-
-            if (number1 < number2 && number2 < number3)
+            int counter = 0;
+            var list = new int[3];
+ 
+            while (counter <= 2) 
             {
-                firstNumber = number1;
-                secondNumber = number2;
-                thirdNumber = number3;
-            }
-            else if (number1 < number3 && number3 < number2)
-            {
-                firstNumber = number1;
-                secondNumber = number3;
-                thirdNumber = number2;
-            }
-            else if (number2 < number1 && number1 < number3)
-            {
-                firstNumber = number2;
-                secondNumber = number1;
-                thirdNumber = number3;
-            }
-            else if (number2 < number3 && number3 < number1)
-            {
-                firstNumber = number2;
-                secondNumber = number3;
-                thirdNumber = number1;
-            }
-            else if (number3 < number1 && number1 < number2)
-            {
-                firstNumber = number3;
-                secondNumber = number1;
-                thirdNumber = number2;
-            }
-            else if (number3 < number2 && number2 < number1)
-            {
-                firstNumber = number3;
-                secondNumber = number2;
-                thirdNumber = number1;
+                Console.WriteLine($"Digite o {counter+1}º número");
+                list[counter] = Int32.Parse(Console.ReadLine());
+                counter++;
             }
 
-            System.Console.WriteLine($"1° número {firstNumber}");
-            System.Console.WriteLine($"2° número {secondNumber}");
-            System.Console.WriteLine($"3° número {thirdNumber}");
+            int[] newList = list.OrderBy(i => i).ToArray();
+            Console.WriteLine("\nOs numeros em ordem são:");
+ 
+            foreach (int termo in newList) 
+            {
+                Console.WriteLine(termo);
+            }
+
         }
 
 
@@ -632,6 +613,8 @@ namespace Exercicios_14._07._20
 
             System.Console.WriteLine("17. Imprimir a tabuada de qualquer número fornecido pelo usuário até que ele digite -1.");
             int number = 0;
+            int counter = 0;
+            
             while (true)
             {
                 System.Console.WriteLine("Insira um número inteiro. Para finalizar, digite -1:");
@@ -642,16 +625,11 @@ namespace Exercicios_14._07._20
                     break;
                 }
 
-                System.Console.WriteLine($"1 x {number} = {number}");
-                System.Console.WriteLine($"2 x {number} = {2*number}");
-                System.Console.WriteLine($"3 x {number} = {3*number}");
-                System.Console.WriteLine($"4 x {number} = {4*number}");
-                System.Console.WriteLine($"5 x {number} = {5*number}");
-                System.Console.WriteLine($"6 x {number} = {6*number}");
-                System.Console.WriteLine($"7 x {number} = {7*number}");
-                System.Console.WriteLine($"8 x {number} = {8*number}");
-                System.Console.WriteLine($"9 x {number} = {9*number}");
-                System.Console.WriteLine($"10 x {number} = {10*number}");
+                while (counter < 10)
+                {
+                    counter++;
+                    System.Console.WriteLine($"{counter} x {number} = {counter * number}");
+                }
             }
         }
 
