@@ -15,20 +15,23 @@ namespace Exercicios_14._07._20
                 System.Console.WriteLine("*** MENU PRINCIPAL ***");
                 System.Console.WriteLine("Digite um número de 1 a 18 para escolher o exercício. Digite 0 para sair.");
                 mainOption = System.Console.ReadLine();
+                System.Console.WriteLine("");
                 
                 if (mainOption == "1")
                 {
                     System.Console.WriteLine("Digite dentre as opções a, b ou c.");
-                    var optionABC = System.Console.ReadLine();
-                    if (optionABC == "a" || optionABC == "A")
+                    var optionABC = System.Console.ReadLine().ToUpper();
+                    System.Console.WriteLine("");
+
+                    if (optionABC == "A")
                     {
                         exercicio1A();
                     }
-                    else if (optionABC == "b" || optionABC == "B")
+                    else if (optionABC == "B")
                     {
                         exercicio1B();
                     }
-                    else if (optionABC == "c" || optionABC == "C")
+                    else if (optionABC == "C")
                     {
                         exercicio1C();
                     }
@@ -119,7 +122,7 @@ namespace Exercicios_14._07._20
                     exercicio18();
                 }
 
-                System.Console.WriteLine("*** PROGRAMA ENCERRADO ***");
+                System.Console.WriteLine("\n*** PROGRAMA ENCERRADO ***\n");
             }
         }
     
@@ -129,13 +132,12 @@ namespace Exercicios_14._07._20
         {
             //1.a)Imprimir os números de 1 a 10 de forma crescente
             System.Console.WriteLine("1.a) Imprimir os números de 1 a 10 de forma crescente");
-            int evenNumber = 1;
-            while (evenNumber <= 10) 
+            
+            for (int evenNumber = 1; evenNumber < 11; evenNumber++)
             {
                 Console.WriteLine(evenNumber);
-                evenNumber++;
             }
-            System.Console.WriteLine("Fim do exercício");
+            System.Console.WriteLine("\nFim do exercício\n");
         }
 
 
@@ -143,13 +145,12 @@ namespace Exercicios_14._07._20
         {
             //1.b)Imprimir os números de 1 a 10 de forma decrescente
             System.Console.WriteLine("1.b) Imprimir os números de 1 a 10 de forma decrescente");
-            int evenNumber = 10;
-            while (evenNumber >= 0)
+            
+            for (int evenNumber = 10; evenNumber > 0; evenNumber--)
             {
                 Console.WriteLine(evenNumber);
-                evenNumber--;
             }
-            System.Console.WriteLine("Fim do exercício");
+            System.Console.WriteLine("\nFim do exercício\n");
         }
 
 
@@ -157,15 +158,15 @@ namespace Exercicios_14._07._20
         {
             //1.c)Imprimir os números PARES de 1 a 10 de forma crescente
             System.Console.WriteLine("1.c) Imprimir os números PARES de 1 a 10 de forma crescente");
-            int evenNumber = 1;
-            while (evenNumber <= 10)
+            
+            for (int evenNumber = 1; evenNumber < 11; evenNumber++)
             {
-                evenNumber++;
                 if (evenNumber % 2 == 0)
                 {
                     System.Console.WriteLine(evenNumber);
                 }
             }
+            System.Console.WriteLine("\nFim do exercício\n");
         }
 
 
@@ -174,14 +175,12 @@ namespace Exercicios_14._07._20
             // 2. Imprimir a soma dos números inteiros de 1 a 100.
             System.Console.WriteLine("2. Imprimir a soma dos números inteiros de 1 a 100");
             int sumIntNumbers = 0;
-            int counterSum = 0;
 
-            while (counterSum <= 100)
+            for (int i = 0; i < 101; i++)
             {
-                sumIntNumbers += counterSum;
-                counterSum++;
+                sumIntNumbers += i;
             }
-            System.Console.WriteLine($"Soma = {sumIntNumbers}");
+            System.Console.WriteLine($"\nSoma = {sumIntNumbers}\n");
         }
         
 
@@ -189,16 +188,15 @@ namespace Exercicios_14._07._20
         {
             //3. Imprimir todo os números ímpares menores de 200.
             System.Console.WriteLine("3. Imprimir todo os números ímpares menores de 200");
-            int oddNumber = 0;
-
-            while (oddNumber < 200)
+            
+            for (int oddNumber = 0; oddNumber < 200; oddNumber++)
             {
-                oddNumber++;
                 if (oddNumber % 2 != 0)
                 {
                     System.Console.WriteLine(oddNumber);
                 }
             }
+            System.Console.WriteLine("\nFim do exercício\n");
         }
 
 
@@ -207,18 +205,32 @@ namespace Exercicios_14._07._20
             //4. Calcular a média de idade de uma turma. Parar quando for digitada a idade igual a zero.
             System.Console.WriteLine("4. Calcular a média de idade de uma turma. Parar quando for digitada a idade igual a zero");
             int counter = 0;
-            float groupAge = 1;
+            double groupAge = 0.0;
             var age = "";
 
-            while (age != "0")
+            while (true)
             {
-                System.Console.WriteLine("Insira a idade de um membro da turma (zero para encerrar):");
+                Console.Write("Insira a idade de um membro da turma (zero para encerrar): ");
                 age = System.Console.ReadLine();
-                groupAge += float.Parse(age);
-                counter++;
+                if (age == "0")
+                {
+                    break;
+                }
+                else
+                {
+                    try
+                    {
+                        groupAge += double.Parse(age);
+                        counter++;
+                    }
+                    catch (System.Exception)
+                    {
+                        System.Console.WriteLine("Erro. Insira apenas números inteiros.");
+                    }
+                }
             }
-            float averageAge = (groupAge-1)/(counter-1);
-            System.Console.WriteLine($"Idade média = {averageAge}");
+            double averageAge = (groupAge)/(counter);
+            System.Console.WriteLine($"\nIdade média = {averageAge}\n");
         }
 
 
@@ -227,26 +239,32 @@ namespace Exercicios_14._07._20
             //5. Peça nome e idade de 5 mulheres. Mostrar porcentagem das que têm idade entre 18 e 35. 
             System.Console.WriteLine("5. Peça nome e idade de 5 mulheres. Mostrar porcentagem das que têm idade entre 18 e 35");
             int userAge = 0;
-            string userName = "";
-            float counterUsers = 0;
             float counterAge = 0;
             float percentAverageAge = 0;
         
-            while (counterUsers < 5)
+            for (int i = 0; i < 5; i++)
             {
-                System.Console.WriteLine("Insira o nome da Usuária:");
-                userName = System.Console.ReadLine();
-                System.Console.WriteLine("Insira a idade da Usuária:");
+                Console.Write("Insira o nome da Usuária: ");
+                System.Console.ReadLine();
+                Console.Write("Insira a idade da Usuária: ");
                 var age = System.Console.ReadLine();
-                userAge = int.Parse(age);
-                counterUsers++;
+                try
+                {
+                    userAge = int.Parse(age);   
+                }
+                catch (System.Exception)
+                {
+                    System.Console.WriteLine("Erro. Tente novamente com números inteiros.");
+                    i--;
+                }
+                
 
                 if (userAge >= 18 && userAge <= 35)
                 {
                     counterAge++;
                 }
             }
-            percentAverageAge = (counterAge / counterUsers) * 100;
+            percentAverageAge = (counterAge / 5) * 100;
             System.Console.WriteLine($"A porcentagem de mulheres entre 18 e 35 anos é {percentAverageAge}%");
         }
 
@@ -268,13 +286,18 @@ namespace Exercicios_14._07._20
             int firstCandidateCounter = 0;
             int secondCandidateCounter = 0;
                        
-            while (mainOption != "x" || mainOption != "X")
+            while (mainOption != "X")
             {
                 System.Console.WriteLine("\n*** URNA ELETRÔNICA ***");
                 System.Console.WriteLine("Digite os números referentes às opções: \n1.CADASTRO \n2.VOTAÇÃO \n3.APURAÇÃO \nOu digite X para sair.");
-                mainOption = System.Console.ReadLine();
+                mainOption = System.Console.ReadLine().ToUpper();
 
-                if (mainOption == "1")
+                if (mainOption == "X")
+                {
+                    return;
+                }
+                
+                else if (mainOption == "1")
                 {
                     System.Console.WriteLine("\n1ª ETAPA: CADASTRO");
                     System.Console.WriteLine("Insira a senha para continuar:");                        
@@ -293,55 +316,76 @@ namespace Exercicios_14._07._20
                     }
                 }
                     
-                else if (mainOption == "2" && firstCandidate != "" && secondCandidate != "")
+                else if (mainOption == "2")
                 {
-                    System.Console.WriteLine("\n2ª ETAPA: VOTAÇÃO:");
-                    firstCandidateCounter = 0;
-                    secondCandidateCounter = 0;
-
-                    System.Console.WriteLine($"Selecione dentre as opções: (1) {firstCandidate} ou (2) {secondCandidate} ");
-
-                    while (true)
+                    if (firstCandidate == "" || secondCandidate == "")
                     {
-                        System.Console.WriteLine("\nInsira o número, ou X para finalizar:");
-                        var vote = System.Console.ReadLine();
-                        if (vote == "x" || vote == "X")
+                        System.Console.WriteLine("ERRO. É necessário cadastrar os candidatos antes votar.");
+                    }
+                    else
+                    {
+                        System.Console.WriteLine("\n2ª ETAPA: VOTAÇÃO:");
+                        firstCandidateCounter = 0;
+                        secondCandidateCounter = 0;
+
+                        System.Console.WriteLine($"Selecione dentre as opções: (1) {firstCandidate} ou (2) {secondCandidate} ");
+
+                        while (true)
                         {
-                            break;
-                        }
-                        else if (vote == "1")
-                        {
-                            firstCandidateCounter++;
-                        }
-                        else if (vote == "2")
-                        {
-                            secondCandidateCounter++;
-                        }
-                        else
-                        {
-                            System.Console.WriteLine("Escolha uma opção válida.");
+                            System.Console.WriteLine("\nInsira o número, ou X para finalizar:");
+                            var vote = System.Console.ReadLine().ToUpper();
+                            if (vote == "X")
+                            {
+                                break;
+                            }
+                            else if (vote == "1")
+                            {
+                                firstCandidateCounter++;
+                            }
+                            else if (vote == "2")
+                            {
+                                secondCandidateCounter++;
+                            }
+                            else
+                            {
+                                System.Console.WriteLine("Escolha uma opção válida.");
+                            }
                         }
                     }
                 }
 
-                else if (mainOption == "3" && firstCandidate != "" && secondCandidate != "" && firstCandidateCounter != 0 || secondCandidateCounter != 0)
+                else if (mainOption == "3")
                 {
-                    System.Console.WriteLine("\n3ª ETAPA: APURAÇÃO DOS VOTOS");
-                    if (firstCandidateCounter > secondCandidateCounter)
+                    if (firstCandidate == "" || secondCandidate == "" || firstCandidateCounter == 0 && secondCandidateCounter == 0)
                     {
-                        System.Console.WriteLine($"Candidato(a) {firstCandidate} venceu a eleição!\n");
+                        System.Console.WriteLine("ERRO. É necessário cadastrar os candidatos e votar antes da apuração.");
                     }
-                    else if (secondCandidateCounter > firstCandidateCounter)
+
+                    else
                     {
-                        System.Console.WriteLine($"Candidato(a) {secondCandidate} venceu a eleição!\n");
-                    }
-                    else if (secondCandidateCounter == firstCandidateCounter)
-                    {
-                        System.Console.WriteLine("SEGUNDO TURNO\n");
+                        System.Console.WriteLine("\n3ª ETAPA: APURAÇÃO DOS VOTOS");
+                        if (firstCandidateCounter > secondCandidateCounter)
+                        {
+                            System.Console.WriteLine($"Candidato(a) {firstCandidate} venceu a eleição!\n");
+                        }
+                        else if (secondCandidateCounter > firstCandidateCounter)
+                        {
+                            System.Console.WriteLine($"Candidato(a) {secondCandidate} venceu a eleição!\n");
+                        }
+                        else if (secondCandidateCounter == firstCandidateCounter)
+                        {
+                            System.Console.WriteLine("SEGUNDO TURNO\n");
+                        }
                     }                
+                }
+
+                else
+                {
+                    System.Console.WriteLine("Digitada uma opção inválida.\n");
                 }
             }
         }
+
 
 
         static void exercicio7()
@@ -350,15 +394,30 @@ namespace Exercicios_14._07._20
             //fuma, o nº de cigarros fumados por dia e o preço de uma carteira
 
             System.Console.WriteLine("7. Calcular a quantidade de dinheiro gasta por um fumante.");
-            System.Console.WriteLine("Há quantos anos esta pessoa fuma?");
+            
+            double smokingYears = 0.0;
+            double cigarretesPerDay = 0.0;
+            double cigarretesPrice = 0.0; 
+
+            Console.Write("Há quantos anos esta pessoa fuma? ");
             var years = System.Console.ReadLine();
-            var smokingYears = double.Parse(years);
-            System.Console.WriteLine("Quantos cigarros ela fuma por dia?");
+            
+            Console.Write("Quantos cigarros ela fuma por dia? ");
             var cigarretes = System.Console.ReadLine();
-            var cigarretesPerDay = double.Parse(cigarretes);
-            System.Console.WriteLine("Qual o valor da carteira de cigarros?");
+            
+            Console.Write("Qual o valor da carteira de cigarros? ");
             var price = System.Console.ReadLine();
-            var cigarretesPrice = double.Parse(price);
+
+            try
+            {
+                smokingYears = double.Parse(years);
+                cigarretesPerDay = double.Parse(cigarretes);
+                cigarretesPrice = double.Parse(price);            
+            }
+            catch (System.Exception)
+            {
+                System.Console.WriteLine("Erro. algum item inválido foi inserido. Insira apenas números.");
+            }
 
             var cigarretesPerYear = (cigarretesPerDay*smokingYears*365/20);
             var cigarretesPackPerYear = Math.Ceiling(cigarretesPerYear);
@@ -367,18 +426,36 @@ namespace Exercicios_14._07._20
             System.Console.WriteLine($"O valor total gasto em cigarros foi R$ {totalExpensePerYear}");
         }
 
+
+
         static void exercicio8()
         {
             //8. Ler dois números inteiros, X e Y, e apresentar mensagem informando se o X é múltiplo de Y.
             System.Console.WriteLine("8. Ler dois números inteiros, X e Y, e apresentar mensagem informando se o X é múltiplo de Y");
-            System.Console.WriteLine("Insira X:");
+            
+            int x = 0;
+            int y = 0;
+            
+            Console.Write("Insira X: ");
             var xString = System.Console.ReadLine();
-            int x = Int32.Parse(xString);
-            System.Console.WriteLine("Insira Y:");
+            Console.Write("Insira Y: ");
             var yString = System.Console.ReadLine();
-            int y = Int32.Parse(yString);
+            
+            try
+            {
+                x = Int32.Parse(xString);
+                y = Int32.Parse(yString);
+            }
+            catch (System.Exception)
+            {
+                System.Console.WriteLine("\nErro. algum item inválido foi inserido. Insira apenas números inteiros.");
+            }
 
-            if (x % y == 0)
+            if (y == 0)
+            {
+                System.Console.WriteLine("ERRO. Divisão por zero.");
+            }
+            else if (x % y == 0)
             {
                 System.Console.WriteLine("X é múltiplo de Y.");
             }
@@ -393,15 +470,28 @@ namespace Exercicios_14._07._20
             // 9. Fazer um algoritmo para ler 03 números reais do teclado e verificar se o primeiro é maior que a soma dos outros dois.
 
             System.Console.WriteLine("3. Ler 3 números reais e verificar se o primeiro é maior que a soma dos outros dois");
+            
+            int firstNumber = 0;
+            int secondNumber = 0;
+            int thirdNumber = 0;
+
             System.Console.WriteLine("Insira o 1º número:");
             var num1 = System.Console.ReadLine();
-            int firstNumber = Int32.Parse(num1);
             System.Console.WriteLine("Insira o 2º número:");
             var num2 = System.Console.ReadLine();
-            int secondNumber = Int32.Parse(num2);
             System.Console.WriteLine("Insira o 3º número:");
             var num3 = System.Console.ReadLine();
-            int thirdNumber = Int32.Parse(num3);
+            
+            try
+            {
+                firstNumber = Int32.Parse(num1);
+                secondNumber = Int32.Parse(num2);
+                thirdNumber = Int32.Parse(num3);
+            }
+            catch (System.Exception)
+            {
+                System.Console.WriteLine("\nErro. algum item inválido foi inserido. Insira apenas números inteiros.");
+            }
             int sum = secondNumber + thirdNumber;
 
             if (firstNumber > sum)
@@ -415,17 +505,30 @@ namespace Exercicios_14._07._20
         }
 
 
+
         static void exercicio10()
         {
             // 10. Ler 02 números reais do teclado (A e B), verificar e imprimir qual deles é maior, ou a mensagem "A = B" caso sejam iguais.
 
             System.Console.WriteLine("10. Comparar A e B. Verificar qual é maior.");
+
+            int varA = 0;
+            int varB = 0;
+
             System.Console.WriteLine("Insira a variável A:");
             var num1 = System.Console.ReadLine();
-            int varA = Int32.Parse(num1);
             System.Console.WriteLine("Insira a variável B:");
             var num2 = System.Console.ReadLine();
-            int varB = Int32.Parse(num2);
+
+            try
+            {
+                varA = Int32.Parse(num1);
+                varB = Int32.Parse(num2);
+            }
+            catch (System.Exception)
+            {
+                System.Console.WriteLine("\nErro. algum item inválido foi inserido. Insira apenas números inteiros.");
+            }
 
             if (varA > varB)
             {
@@ -447,23 +550,40 @@ namespace Exercicios_14._07._20
             //o quociente do primeiro pelo segundo. Caso contrário, imprimir a mensagem: "DIVISÃO POR ZERO".
 
             System.Console.WriteLine("11. Divisão de dois inteiros.");
-            System.Console.WriteLine("Insira o primeiro número:");
-            var num1 = System.Console.ReadLine();
-            double firstNumber = Int32.Parse(num1);
-            System.Console.WriteLine("Insira o segundo número:");
-            var num2 = System.Console.ReadLine();
-            double secondNumber = Int32.Parse(num2);
 
-            if (secondNumber != 0)
+            int? firstNumber = null;
+            int? secondNumber = null;
+
+            Console.Write("Insira o primeiro número: ");
+            var num1 = System.Console.ReadLine();
+            Console.Write("Insira o segundo número: ");
+            var num2 = System.Console.ReadLine();
+            
+            try
             {
-                double division = firstNumber/secondNumber;
-                System.Console.WriteLine($"Divisão = {division}");
+                firstNumber = Int32.Parse(num1);
+                secondNumber = Int32.Parse(num2);
+            }
+            catch (System.Exception)
+            {
+                System.Console.WriteLine("\nErro. algum item inválido foi inserido. Insira apenas números inteiros.");
+            }
+
+            if (secondNumber > 0)
+            {
+                double division = (double)firstNumber/(double)secondNumber;
+                System.Console.WriteLine($"\nDivisão = {division}");
             }
             else if (secondNumber == 0)
             {
-                System.Console.WriteLine("DIVISÃO POR ZERO!");
+                System.Console.WriteLine("\nDIVISÃO POR ZERO!");
+            }
+            else if (secondNumber < 0)
+            {
+                System.Console.WriteLine("\nDIVISÃO POR NÚMERO NEGATIVO!");
             }
         }
+
 
 
         static void exercicio12()
@@ -473,75 +593,99 @@ namespace Exercicios_14._07._20
             System.Console.WriteLine("12. Ler 4 números inteiros e calcular a soma dos que forem pares e ímpares.");
             int sumEvenNumbers = 0;
             int sumOddNumbers = 0;
-            int cont = 0;
+            int number = 0;
 
-            while (cont < 4)
+            for (int i = 0; i < 4; i++)
             {
-            System.Console.WriteLine("Insira um número inteiro:");
-            var num = System.Console.ReadLine();
-            int number = Int32.Parse(num);
-            cont++;
+                Console.Write("Insira um número inteiro: ");
+                var num = System.Console.ReadLine();
+                
+                try
+                {
+                    number = Int32.Parse(num);
+                }
+                catch (System.Exception)
+                {
+                    System.Console.WriteLine("\nErro. algum item inválido foi inserido. Insira apenas números inteiros.");
+                    i--;
+                }
 
-            if (number%2 == 0)
-            {
-                sumEvenNumbers += number;
+                if (number%2 == 0)
+                {
+                    sumEvenNumbers += number;
+                }
+                else if (number%2 != 0)
+                {
+                    sumOddNumbers += number;
+                }
             }
-            else if (number%2 != 0)
-            {
-                sumOddNumbers += number;
-            }
-            }
-            System.Console.WriteLine($"A soma dos números pares é {sumEvenNumbers}");
+            System.Console.WriteLine($"\nA soma dos números pares é {sumEvenNumbers}");
             System.Console.WriteLine($"A soma dos números ímpares é {sumOddNumbers}");
         }
+
 
 
         static void exercicio13()
         {
             // 13. Ler 10 valores e determinar o maior dentre eles.
             System.Console.WriteLine("13. Ler 10 valores e determinar o maior dentre eles.");
-            int greatestNumber = 0;
-            int counter = 0;
+            int greatestNumber = Int32.MinValue;
+            int number = 0;
 
-            while (counter < 10)
+            for (int i = 0; i < 10; i++)
             {
-            System.Console.WriteLine("Insira um número:");
-            var num = System.Console.ReadLine();
-            int number = Int32.Parse(num);
-            counter++;
+                Console.Write($"Insira o número {i+1}/10: ");
+                var num = System.Console.ReadLine();
+                
+                try
+                    {
+                        number = Int32.Parse(num);
+                    }
+                    catch (System.Exception)
+                    {
+                        System.Console.WriteLine("\nErro. algum item inválido foi inserido. Insira apenas números inteiros.");
+                        i--;
+                    }
 
-            if (number > greatestNumber)
-            {
-                greatestNumber = number;
+                if (number > greatestNumber)
+                {
+                    greatestNumber = number;
+                }
             }
-            }
-            System.Console.WriteLine($"O maior número é {greatestNumber}");
+            System.Console.WriteLine($"\nO maior número é {greatestNumber}");
         }
             
 
         static void exercicio14()
         {
             // 14. Ler três valores e colocá-los em ordem
-
-            int counter = 0;
+            System.Console.WriteLine("14. Ler três valores e colocá-los em ordem");
             var list = new int[3];
  
-            while (counter <= 2) 
+            for (int i = 0; i < 3; i++) 
             {
-                Console.WriteLine($"Digite o {counter+1}º número");
-                list[counter] = Int32.Parse(Console.ReadLine());
-                counter++;
+                Console.Write($"Digite o número {i+1}/3: ");
+                try
+                    {
+                        list[i] = Int32.Parse(Console.ReadLine());
+                    }
+                catch (System.Exception)
+                {
+                    System.Console.WriteLine("\nErro. algum item inválido foi inserido. Insira apenas números inteiros.");
+                    i--;
+                }
             }
 
-            int[] newList = list.OrderBy(i => i).ToArray();
+            Array.Sort(list);
             Console.WriteLine("\nOs numeros em ordem são:");
  
-            foreach (int termo in newList) 
+            foreach (int termo in list) 
             {
                 Console.WriteLine(termo);
             }
 
         }
+
 
 
         static void exercicio15()
@@ -550,13 +694,21 @@ namespace Exercicios_14._07._20
             System.Console.WriteLine("15. Ler 10 números e imprimir quantos são múltiplos de 3 e quantos são múltiplos de 5.");
             int counter3 = 0;
             int counter5 = 0;
-            int counter = 0;
+            int number = 0;
 
-            while (counter < 10)
+            for (int i = 0; i < 10; i++) 
             {
-                counter++;
-                System.Console.WriteLine($"Insira o número {counter} de 10");
-                int number = Int32.Parse(System.Console.ReadLine());
+                Console.Write($"Insira o número {i+1}/10: ");
+
+                try
+                    {
+                        number = Int32.Parse(System.Console.ReadLine());
+                    }
+                catch (System.Exception)
+                {
+                    System.Console.WriteLine("Erro. algum item inválido foi inserido. Insira apenas números inteiros.");
+                    i--;
+                }
 
                 if (number%3 == 0)
                 {
@@ -567,7 +719,7 @@ namespace Exercicios_14._07._20
                     counter5++;
                 }
             }
-            System.Console.WriteLine($"Há {counter3} números múltiplos de 3 e {counter5} múltiplos de 5.");
+            System.Console.WriteLine($"\nHá {counter3} números múltiplos de 3 e {counter5} múltiplos de 5.");
         }
 
 
@@ -578,15 +730,32 @@ namespace Exercicios_14._07._20
             // Maior que R$ 600,00 e menor ou igual a 1200 - 20% desconto
             // Maior que R$ 1.200,00 e menor ou igual a R$2000 - 25% desconto
             // Maior que R$ 2.000,00 - 30% desconto
-
+            
             System.Console.WriteLine("16. Cálculo de salário líquido.");
+            double income = 0;
             double finalIncome = 0;
-            System.Console.WriteLine("Insira o seu salário bruto:");
-            double income = double.Parse(System.Console.ReadLine());
-
-            if (income <= 600)
+            
+            Console.Write("Insira o seu salário bruto: ");
+            while (true)
             {
-                System.Console.WriteLine($"Salário = R$ {income}. ISENTO");
+                try
+                    {
+                        income = double.Parse(System.Console.ReadLine());
+                        break;
+                    }
+                catch (System.Exception)
+                {
+                    System.Console.WriteLine("Erro. algum item inválido foi inserido. Insira apenas números.");
+                }
+            }
+
+            if (income < 0)
+            {
+                System.Console.WriteLine("ERRO. O salário não pode ser um valor negativo.");
+            }
+            else if (income <= 600)
+            {
+                System.Console.WriteLine($"Salário = R$ {income.ToString("0.00")}. ISENTO");
             }
             else if (income > 600 && income <= 1200)
             {
@@ -603,8 +772,8 @@ namespace Exercicios_14._07._20
                 finalIncome = income * 0.70;
                 System.Console.WriteLine($"Salário líquido é R$ {finalIncome.ToString("0.00")}");
             }
-
         }
+
 
 
         static void exercicio17()
@@ -612,23 +781,33 @@ namespace Exercicios_14._07._20
             // 17. Imprimir a tabuada de qualquer número fornecido pelo usuário até que o usuário forneça o valor –1.
 
             System.Console.WriteLine("17. Imprimir a tabuada de qualquer número fornecido pelo usuário até que ele digite -1.");
-            int number = 0;
-            int counter = 0;
-            
+                        
             while (true)
             {
+                int? number = null;
+                int counter = 0;
                 System.Console.WriteLine("Insira um número inteiro. Para finalizar, digite -1:");
-                number = Int32.Parse(System.Console.ReadLine());
+
+                try
+                    {
+                        number = Int32.Parse(System.Console.ReadLine());
+                    }
+                catch (System.Exception)
+                {
+                    System.Console.WriteLine("Erro. algum item inválido foi inserido. Insira apenas números inteiros.\n");
+                }
 
                 if (number == -1) 
                 {
                     break;
                 }
-
-                while (counter < 10)
+                else if (number != null)
                 {
-                    counter++;
-                    System.Console.WriteLine($"{counter} x {number} = {counter * number}");
+                    while (counter < 10)
+                    {
+                        counter++;
+                        System.Console.WriteLine($"{counter} x {number} = {counter * number}");
+                    }
                 }
             }
         }
@@ -640,8 +819,21 @@ namespace Exercicios_14._07._20
             //um programa que leia o número de maçãs compradas, calcule e escreva o custo total da compra. 
 
             System.Console.WriteLine("18. Cálculo do valor de maçãs.");
-            System.Console.WriteLine("Quantas maçãs você deseja comprar?");
-            int appleAmount = Int32.Parse(System.Console.ReadLine());
+            int appleAmount = 0;
+
+            System.Console.WriteLine("Quantas maçãs você deseja comprar?");        
+            while (true)
+            {
+                try
+                    {
+                        appleAmount = Int32.Parse(System.Console.ReadLine());
+                        break;
+                    }
+                catch (System.Exception)
+                {
+                    System.Console.WriteLine("Erro. algum item inválido foi inserido. Insira apenas números inteiros.");
+                }
+            }
 
             if (appleAmount < 12)
             {
@@ -650,10 +842,8 @@ namespace Exercicios_14._07._20
             }
             else if (appleAmount >= 12)
             {
-                System.Console.WriteLine($"Total da compra: R$ {appleAmount}"); 
+                System.Console.WriteLine($"Total da compra: R$ {appleAmount.ToString("0.00")}"); 
             }
         }
-
-            
     }
 }
