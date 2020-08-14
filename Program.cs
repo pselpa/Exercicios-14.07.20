@@ -757,12 +757,12 @@ namespace Exercicios_14._07._20
             {
                 System.Console.WriteLine($"Salário = R$ {income.ToString("0.00")}. ISENTO");
             }
-            else if (income > 600 && income <= 1200)
+            else if (income <= 1200)
             {
                 finalIncome = income * 0.8;
                 System.Console.WriteLine($"Salário líquido é R$ {finalIncome.ToString("0.00")}");
             }
-            else if (income > 1200 && income <= 2000)
+            else if (income <= 2000)
             {
                 finalIncome = income * 0.75;
                 System.Console.WriteLine($"Salário líquido é R$ {finalIncome.ToString("0.00")}");
